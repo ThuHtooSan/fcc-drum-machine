@@ -1,0 +1,81 @@
+@use '../../sass/variables' as *;
+@use '../../sass/mixins' as *;
+@use '../../sass/functions' as *;
+
+.display-container {
+  width: 150px;
+  height: 200px;
+  @include flex-col();
+  justify-content: space-around;
+  align-items: center;
+
+  &.on {
+    .display,
+    .power {
+      box-shadow: $box-shadow;
+    }
+
+    .display {
+      color: $white;
+      border: 3.5px solid $primary;
+    }
+
+    .power {
+      color: $primary;
+      border: 3px solid $primary;
+    }
+  }
+
+  &.off {
+    .display,
+    .power {
+      color: $grey;
+    }
+
+    .display {
+      border: 3.5px solid $grey;
+    }
+
+    .power {
+      border: 3px solid $grey;
+    }
+  }
+
+  @media (max-width: 550px) {
+    flex-direction: column-reverse;
+    gap: 20px;
+    justify-content: unset;
+    align-items: unset;
+    height: auto;
+    width: 100%;
+  }
+
+  .display {
+    width: 100%;
+    height: 45px;
+    border-radius: $border-radius;
+    transition: $transition-duration;
+    @include flex-row-center;
+    font-size: 1.1rem;
+  }
+
+  .power {
+    width: 50px;
+    height: 50px;
+    @include flex-row-center;
+    border-radius: 50%;
+    background: none;
+    font-weight: bold;
+    transition: $transition-duration;
+
+    @media (max-width: 550px) {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+}

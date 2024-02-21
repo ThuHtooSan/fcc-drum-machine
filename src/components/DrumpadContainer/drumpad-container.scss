@@ -1,0 +1,58 @@
+@use '../../sass/variables' as *;
+@use '../../sass/mixins.scss' as *;
+
+.drumpad-container {
+  @include flex-row-center(5px);
+  flex-wrap: wrap;
+  width: 220px;
+  max-height: 100%;
+  padding-block: 10px;
+  border-radius: $border-radius;
+  transition: $transition-duration;
+
+  &.on {
+    border: 4px solid $primary;
+
+    .drum-pad {
+      background: $primary;
+      box-shadow: $box-shadow;
+    }
+  }
+
+  &.off {
+    border: 4px solid $grey;
+
+    .drum-pad {
+      background: $grey;
+      pointer-events: none;
+      color: $grey;
+    }
+  }
+
+  .drum-pad {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    @include flex-row-center;
+    border-radius: inherit;
+    transition: $transition-duration;
+    outline: 2px solid transparent;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: auto;
+      right: auto;
+      width: 12px;
+      height: 3.5px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.1);
+      transition: $transition-duration;
+    }
+
+    &:focus::after {
+      background: $white;
+    }
+  }
+}

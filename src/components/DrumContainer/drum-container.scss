@@ -1,0 +1,15 @@
+@use '../../sass/variables' as *;
+@use '../../sass/mixins.scss' as *;
+
+.drum-container {
+  position: relative;
+  @include flex-row-center(20px);
+  border-radius: $border-radius;
+  background: $secondary;
+  padding: 20px;
+  box-shadow: $box-shadow;
+
+  @media (max-width: 550px) {
+    flex-direction: column-reverse;
+  }
+}

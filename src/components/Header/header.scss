@@ -1,0 +1,29 @@
+@use '../../sass/variables.scss' as *;
+@use '../../sass/mixins.scss' as *;
+
+.header {
+  width: 100%;
+  @include flex-col(10px);
+  align-items: center;
+  text-align: center;
+  color: $secondary;
+
+  * {
+    font-family: 'Itim', cursive;
+  }
+
+  .sub-title {
+    font-size: 0.9rem;
+    @include flex-row(5px);
+    font-weight: 100;
+
+    .fcc-logo {
+      margin-top: 2px;
+      width: 110px;
+    }
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+}
